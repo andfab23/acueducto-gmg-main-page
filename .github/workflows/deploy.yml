@@ -35,4 +35,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/acueducto-gmg-main/browser/**'
           target: '/var/www/acueducto-gmg-main-page-app'
-          strip_components: 0
+          strip_components: 3
