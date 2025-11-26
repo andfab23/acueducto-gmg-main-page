@@ -14,10 +14,10 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Usar Node.js
+      - name: Usar Node.js (Angular 19 requiere 20+)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Instalar dependencias
         working-directory: ./
@@ -35,4 +35,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/acueducto-gmg-main/browser/**'
           target: '/var/www/acueducto-gmg-main-page-app'
-          strip_components: 3
+          strip_components: 4
