@@ -1,0 +1,42 @@
+<div
+  class="relative h-screen w-full flex flex-col gap-2 items-center justify-center overflow-hidden bg-blue-100"
+>
+  <!-- GOTAS GENERADAS EN TEMPLATE -->
+  @for (item of drops; track $index) {
+  <div
+    class="absolute bg-blue-400 rounded-full drop"
+    [ngStyle]="{
+      left: item.left,
+      width: item.size,
+      height: item.size,
+      animationDuration: item.duration
+    }"
+  ></div>
+  }
+  <!-- CONTENIDO -->
+  <div class="max-w-full px-6 text-center z-20 h-full">
+    <!--HEADER-->
+    <div class="h-3/10 flex flex-col gap-2 items-center justify-center">
+      <p-progress-spinner strokeWidth="4" class="mx-auto mb-4 w-12 h-12"></p-progress-spinner>
+
+      <p class="text-3xl font-bold text-blue-600 mb-4">Estamos trabajando en algo increíble</p>
+    </div>
+    <!--BODY-->
+    <div class="h-4/10 text-center flex flex-col items-center justify-center text-3xl w-full">
+      <p class="text-gray-700 leading-relaxed w-full">
+        El sitio web de la
+        <strong class="font-semibold">
+          Asociación de Suscriptores del Acueducto de las Veredas Garibay, Manga y Gachanzuca del
+          Municipio de Togüí - Boyacá
+        </strong>
+        está en construcción. Muy pronto estará disponible con nuevas funciones y mejor experiencia.
+      </p>
+    </div>
+    <!--HEADER-->
+    <div class="w-full h-3/10 flex items-end justify-center">
+      <p class="text-gray-500 text-sm mb-4 text-xl">
+        © 2025 Acueducto GMG. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</div>
