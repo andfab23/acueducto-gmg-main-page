@@ -33,6 +33,6 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: 'acueducto-gmg-main-page/dist/acueducto-gmg-main-page/browser/**'
+          source: 'acueducto-gmg-main-page/dist/acueducto-gmg-main/browser/**'
           target: '/var/www/acueducto-gmg-main-page-app'
           strip_components: 4
