@@ -2,6 +2,11 @@ pipeline {
 
     agent any
 
+    environment {
+        // Ajusta la ruta según la ubicación de Chromium en tu servidor (ej. /usr/bin/chromium o /usr/bin/chromium-browser)
+        CHROME_BIN = '/usr/bin/chromium'
+    }
+
     tools{
         nodejs 'NodeJS'
     }
@@ -29,7 +34,7 @@ pipeline {
         // Etapa 4: Test
         stage('Test'){
             steps {
-                sh 'npm run test'
+                sh 'npm run test:ci'
             }
         }
         // Etapa 5: construir 
