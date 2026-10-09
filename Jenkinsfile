@@ -22,7 +22,7 @@ pipeline {
         // Etapa 2: Instalar dependencias, construir y generar cobertura
         stage('Environments') {
             steps {
-                sh 'npm ci'
+                sh 'npm i'
             }
         }
         // Etapa 3: Lint
