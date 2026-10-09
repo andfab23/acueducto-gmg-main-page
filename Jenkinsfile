@@ -40,4 +40,18 @@ pipeline {
             }
         }
     }
+
+    post{
+        always {
+            echo 'Pipeline finalizado.'
+        }
+
+        success {
+            echo 'Pipeline completado satisfactoriamente!'
+        }
+
+        failure {
+            echo 'Pipeline falló. Por favor, revisa los logs para más detalles.'
+        }
+    }
 }
