@@ -84,7 +84,8 @@ describe('Launcher', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const footerParagraph = compiled.querySelector('p.text-gray-500');
     expect(footerParagraph).not.toBeNull();
-    expect(footerParagraph?.textContent).toContain('© 2025 Acueducto GMG. Todos los derechos reservados.');
+    expect(footerParagraph?.textContent).toContain(
+      '© 2026 Acueducto GMG. Todos los derechos reservados.',
+    );
   });
 });
-
