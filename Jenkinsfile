@@ -12,6 +12,41 @@ pipeline {
     }
     stages{
 
+        stage('Checkout') {
+            steps {
+                git(
+                    branch: 'main',
+                    url: 'https://github.com/andfab23/acueducto-gmg-main-page.git'
+                )
+            }
+        }
+
+        // Etapa 2: Instalar dependencias, construir y generar cobertura
+        stage('Environments') {
+            steps {
+                sh 'npm i'
+            }
+        }
+        // Etapa 3: Lint
+        stage('Lint') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
+        // Etapa 4: Test
+        stage('Test'){
+            steps {
+                sh 'npm run test:ci'
+            }
+        }
+        // Etapa 5: construir 
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
         stage('Security Scan with Snyk'){
             steps{
                 script{
@@ -49,39 +84,8 @@ pipeline {
                 }
             }
         }
-        stage('Checkout') {
-            steps {
-                git(
-                    branch: 'main',
-                    url: 'https://github.com/andfab23/acueducto-gmg-main-page.git'
-                )
-            }
-        }
-        // Etapa 2: Instalar dependencias, construir y generar cobertura
-        stage('Environments') {
-            steps {
-                sh 'npm i'
-            }
-        }
-        // Etapa 3: Lint
-        stage('Lint') {
-            steps {
-                sh 'npm run lint'
-            }
-        }
-        // Etapa 4: Test
-        stage('Test'){
-            steps {
-                sh 'npm run test:ci'
-            }
-        }
-        // Etapa 5: construir 
-        stage('Build') {
-            steps {
-                sh 'npm install'
-                sh 'npm run build'
-            }
-        }
+        
+        
     }
 
     post{
